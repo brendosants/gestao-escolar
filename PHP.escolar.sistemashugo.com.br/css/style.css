@@ -1,0 +1,15 @@
+.direita{
+   position:absolute;
+   right:20px;
+}
+
+.topo{
+   position:absolute;
+   top:0px;
+}
+
+label{
+	font-weight: bold;
+	color:#2d2e2e;
+	font-size: 14px;
+}
