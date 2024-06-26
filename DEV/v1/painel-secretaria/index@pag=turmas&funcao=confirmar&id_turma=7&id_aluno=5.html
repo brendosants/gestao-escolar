@@ -1,0 +1,1225 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Hugo Vasconcelos">
+
+        <title>Painel Secretária</title>
+
+        <!-- Custom fonts for this template-->
+        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        
+        <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        
+  <link rel="shortcut icon" href="../img/icone.png" type="image/x-icon">
+  
+    </head>
+
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="navbar-nav bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+
+                <!-- Sidebar - Brand -->
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+
+                    <div class="sidebar-brand-text mx-3">Secretária</div>
+                </a>
+
+                <!-- Divider -->
+                <hr class="sidebar-divider my-0">
+
+
+
+                <!-- Divider -->
+                <hr class="sidebar-divider">
+
+                <!-- Heading -->
+                <div class="sidebar-heading">
+                    Cadastros
+                </div>
+
+
+
+                <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index@pag=alunos.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Alunos</span></a>
+                </li>
+
+                 <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index@pag=responsaveis.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Responsável</span></a>
+                </li>
+
+                 <!-- Nav Item - Charts -->
+                <li class="nav-item">
+                    <a class="nav-link" href="index@pag=turmas.html">
+                        <i class="fas fa-fw fa-chart-area"></i>
+                        <span>Turmas</span></a>
+                </li>
+
+               
+              
+
+                <!-- Divider -->
+                <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Sidebar Toggler (Sidebar) -->
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+
+            </ul>
+            <!-- End of Sidebar -->
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <img class="mt-2" src="../img/logo.png" width="150">
+
+
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="index@pag=turmas&amp;funcao=confirmar&amp;id_turma=7&amp;id_aluno=5.html#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                                    <img class="img-profile rounded-circle" src="../img/sem-foto.jpg">
+
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="index@pag=turmas&amp;funcao=confirmar&amp;id_turma=7&amp;id_aluno=5.html" data-toggle="modal" data-target="#ModalPerfil">
+                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-primary"></i>
+                                        Editar Perfil
+                                    </a>
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="https://escolar.sistemashugo.com.br/logout.php">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-danger"></i>
+                                        Sair
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Begin Page Content -->
+                    <div class="container-fluid">
+
+                        
+<div class="row mt-4 mb-4">
+    <a type="button" class="btn-info btn-sm ml-3 d-none d-md-block" href="index@pag=turmas&amp;funcao=novo.html">Nova Turma</a>
+    <a type="button" class="btn-info btn-sm ml-3 d-block d-sm-none" href="index@pag=turmas&amp;funcao=novo.html">+</a>
+    
+</div>
+
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Disciplina</th>
+                        <th>Sala</th>
+                        <th>Professor</th>
+                        <th>Horário</th>
+                        <th>Dias</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                 
+
+                  <tr>
+                      <td>Ensino Médio <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(7)</span></small></td>
+                    <td>101</td>
+                    <td>Professor 3</td>
+                    <td>07:00 as 12:20</td>
+                    <td>Segunda a sexta</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=9.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=9.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=9.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=9.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=9.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Design Gráfico <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(7)</span></small></td>
+                    <td>101</td>
+                    <td>Hugo Vasconcelos</td>
+                    <td>10</td>
+                    <td>seg</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=8.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="https://escolar.sistemashugo.com.br/painel-secretaria/index?pag=turmas&amp;funcao=excluir&amp;id=8" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=8.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=8.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=8.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Ensino Médio <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(4)</span></small></td>
+                    <td>103</td>
+                    <td>Hugo Vasconcelos</td>
+                    <td>7:00 as 11:00</td>
+                    <td>Segunda A Sexta</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=7.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=7.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=7.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=7.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=7.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Design Gráfico <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(4)</span></small></td>
+                    <td>101</td>
+                    <td>Hugo Vasconcelos</td>
+                    <td>15:00 as 17:00</td>
+                    <td>Segunda A Sexta</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=6.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=6.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=6.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=6.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=6.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Musculação <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(3)</span></small></td>
+                    <td>102</td>
+                    <td>Hugo Vasconcelos</td>
+                    <td>10:00 as 12:00</td>
+                    <td>Segunda A Sexta</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=5.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=5.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=5.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=5.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=5.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Programador de Jogos <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(1)</span></small></td>
+                    <td>103</td>
+                    <td>Professor Teste</td>
+                    <td>8:00 as 12:00</td>
+                    <td>Sexta-Feira</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=4.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=4.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=4.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=4.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=4.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>WEB Designer <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(4)</span></small></td>
+                    <td>104</td>
+                    <td>Hugo Vasconcelos</td>
+                    <td>13:00 as 17:00</td>
+                    <td>Segunda a Sexta</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=3.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=3.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=3.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=3.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=3.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Design Gráfico <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(4)</span></small></td>
+                    <td>101</td>
+                    <td>Hugo Vasconcelos</td>
+                    <td>13:00 as 17:00</td>
+                    <td>Segunda a Sexta</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=2.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=2.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=2.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=2.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=2.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+                  <tr>
+                      <td>Programação WEB <small> <span><i class='fa fa-user text-primary'></i></span> <span class="text-danger">(5)</span></small></td>
+                    <td>102</td>
+                    <td>Professor Teste</td>
+                    <td>8:00 as 12:00</td>
+                    <td>Sexta-Feira</td>
+
+
+                    <td>
+                       <a href="index@pag=turmas&amp;funcao=editar&amp;id=1.html" class='text-primary mr-1' title='Editar Dados'><i class='far fa-edit'></i></a>
+                       <a href="index@pag=turmas&amp;funcao=excluir&amp;id=1.html" class='text-danger mr-1' title='Excluir Registro'><i class='far fa-trash-alt'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=endereco&amp;id=1.html" class='text-info mr-1' title='Ver Dados da Turma'><i class='fas fa-home'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=matricula&amp;id=1.html" class='text-success mr-1' title='Matricular Aluno'><i class='fas fa-user-plus'></i></a>
+
+                       <a href="index@pag=turmas&amp;funcao=modulos&amp;id=1.html" class='text-secondary mr-1' title='Adicionar Módulos / Cursos'><i class='fas fa-plus'></i></a>
+                   </td>
+               </tr>
+           
+
+
+
+
+       </tbody>
+   </table>
+</div>
+</div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDados" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                                
+                <h5 class="modal-title" id="exampleModalLabel">Inserir Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="form" method="POST">
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-4">
+
+                           <div class="form-group">
+                            <label >Disciplina</label>
+                            <select name="disciplina" class="form-control" id="disciplina">
+
+                                                                  
+                                    <option  value="4">Design Gráfico</option>
+                                                                  
+                                    <option  value="6">Ensino Médio</option>
+                                                                  
+                                    <option  value="8">Musculação</option>
+                                                                  
+                                    <option  value="7">Preparatório Concurso</option>
+                                                                  
+                                    <option  value="1">Programação WEB</option>
+                                                                  
+                                    <option  value="5">Programador de Jogos</option>
+                                                                  
+                                    <option  value="2">WEB Designer</option>
+                                
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-4">
+                     <div class="form-group">
+                        <label >Sala</label>
+                        <select name="sala" class="form-control" id="sala">
+
+                                                              
+                                <option  value="1">101</option>
+                                                              
+                                <option  value="2">102</option>
+                                                              
+                                <option  value="3">103</option>
+                                                              
+                                <option  value="5">104</option>
+                            
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                 <div class="form-group">
+                    <label >Professor</label>
+                    <select name="professor" class="form-control" id="professor">
+
+                                                          
+                            <option  value="4">Hugo Vasconcelos</option>
+                                                          
+                            <option  value="5">Professor 3</option>
+                                                          
+                            <option  value="3">Professor Teste</option>
+                        
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label >Data Início</label>
+                    <input value="" type="date" class="form-control" id="data_inicio" name="data_inicio">
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label >Data Final</label>
+                <input value="" type="date" class="form-control" id="data_final" name="data_final">
+            </div>
+        </div>
+        <div class="col-md-4">
+           <div class="form-group">
+            <label >Horário Aulas</label>
+            <input value="" type="text" class="form-control" id="horario" name="horario" placeholder="De xx:xx às xx:xx">
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label >Dias das Aulas</label>
+            <input value="" type="text" class="form-control" id="dia" name="dia" placeholder="Segunda à Sexta">
+        </div>
+    </div>
+    <div class="col-md-4">
+       <div class="form-group">
+        <label >Valor Mensalidade</label>
+        <input value="" type="text" class="form-control" id="valor_mensalidade" name="valor_mensalidade" placeholder="Valor da Mensalidade">
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="form-group">
+        <label >Ano Início</label>
+        <input value="" type="number" class="form-control" id="ano" name="ano" placeholder="Ano da Turma">
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<small>
+    <div id="mensagem">
+
+    </div>
+</small> 
+
+</div>
+
+
+
+<div class="modal-footer">
+
+
+
+    <input value="" type="hidden" name="txtid2" id="txtid2">
+    <input value="" type="hidden" name="antigo" id="antigo">
+    <input value="" type="hidden" name="antigo2" id="antigo2">
+
+    <button type="button" id="btn-fechar" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+    <button type="submit" name="btn-salvar" id="btn-salvar" class="btn btn-primary">Salvar</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="modal" id="modal-deletar" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Excluir Registro</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <p>Deseja realmente Excluir este Registro?</p>
+
+                <small><div align="center" id="mensagem_excluir" class="">
+
+                </div></small>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="btn-cancelar-excluir">Cancelar</button>
+                <form method="post">
+
+                    <input type="hidden" id="id"  name="id" value="" required>
+
+                    <button type="button" id="btn-deletar" name="btn-deletar" class="btn btn-danger">Excluir</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="modal" id="modal-endereco" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Dados da Turma</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                
+                <span><b>Disciplina: </b> <i><br />
+<b>Warning</b>:  Undefined variable $nome_disc3 in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>393</b><br />
+</i><br></span>
+
+                <span><b>Sala: </b> <i><br />
+<b>Warning</b>:  Undefined variable $nome_sala3 in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>395</b><br />
+</i> </span><span class="ml-4"><b>Professor: </b> <i><br />
+<b>Warning</b>:  Undefined variable $nome_prof3 in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>395</b><br />
+</i><br></span>
+
+                <span><b>Data Início: </b> <i><br />
+<b>Warning</b>:  Undefined variable $data_inicioF in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>397</b><br />
+</i> </span><span class="ml-4"><b>Data Final: </b> <i><br />
+<b>Warning</b>:  Undefined variable $data_finalF in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>397</b><br />
+</i><br></span>
+
+                <span><b>Horário: </b> <i><br />
+<b>Warning</b>:  Undefined variable $horario3 in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>399</b><br />
+</i> </span><span class="ml-4"><b>Dias: </b> <i><br />
+<b>Warning</b>:  Undefined variable $dia3 in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>399</b><br />
+</i><br></span>
+
+                <span><b>Valor Mensalidade: </b> <i>R$ <br />
+<b>Warning</b>:  Undefined variable $valor_mensF in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>401</b><br />
+</i> </span><span class="ml-4"><b>Ano: </b> <i><br />
+<b>Warning</b>:  Undefined variable $ano3 in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>401</b><br />
+</i><br></span>
+
+
+                <span><b>Total de Alunos: </b> <i> total</i> </span>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal" id="modal-matricula" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Matricular Aluno <small><a class="text-dark" title="Ver Alunos Matriculados" href="index?pag=turmas&funcao=matriculados&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>423</b><br />
+"><u>Ver Alunos</u></a></small></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+             <!-- DataTales Example -->
+             <div class="card shadow mb-4">
+
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable2" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Telefone</th>
+                                    <th>Email</th>
+                                    <th>CPF</th>
+                                    <th>Foto</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                             
+
+                              <tr>
+                                <td>Aluno Testar</td>
+                                <td>(22) 22222-2222</td>
+                                <td>testar@hotmail.com</td>
+                                <td>111.111.111-11</td>
+                                <td><img src="../img/alunos/sem-foto.jpg" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=8" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+                              <tr>
+                                <td>Aluno de Teste</td>
+                                <td>(54) 41545-4555</td>
+                                <td>batista@hotmail.com</td>
+                                <td>000.000.000-00</td>
+                                <td><img src="../img/alunos/02.png" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=7" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+                              <tr>
+                                <td>Fabricio Silva</td>
+                                <td>(22) 22222-2222</td>
+                                <td>fabricio@hotmail.com</td>
+                                <td>789.522.222-22</td>
+                                <td><img src="../img/alunos/usuario-icone.jpg" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=6" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+                              <tr>
+                                <td>Rui Costa Silva</td>
+                                <td>(33) 33333-3333</td>
+                                <td>rui@hotmail.com</td>
+                                <td>488.888.888-88</td>
+                                <td><img src="../img/alunos/sem-foto.jpg" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=5" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+                              <tr>
+                                <td>Marina Silva</td>
+                                <td>(31) 97139-0746</td>
+                                <td>marina@hotmail.com</td>
+                                <td>030.992.190-29</td>
+                                <td><img src="../img/alunos/team-2.jpg" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=3" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+                              <tr>
+                                <td>Mariano Campos</td>
+                                <td>(55) 55555-5555</td>
+                                <td>mariano@hotmail.com</td>
+                                <td>789.555.555-55</td>
+                                <td><img src="../img/alunos/usuario-icone.jpg" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=2" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+                              <tr>
+                                <td>Felipe Santos</td>
+                                <td>(99) 99999-9999</td>
+                                <td>felipe@hotmail.com</td>
+                                <td>788.888.888-88</td>
+                                <td><img src="../img/alunos/team-1.jpg" width="50"></td>
+
+
+                                <td>
+
+                                   <a href="index?pag=turmas&funcao=confirmar&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>480</b><br />
+&id_aluno=1" class='text-info mr-1' title='Confirmar Matricula'><i class='fas fa-check'></i></a>
+                               </td>
+                           </tr>
+                       
+
+
+
+
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+
+
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="modal" id="modal-matriculados" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Alunos Matriculados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                                  <span><small>Aluno Testar<a title="Excluir Matrícula" href="index@pag=turmas&amp;funcao=excluir_matricula&amp;id_m=55&amp;id_turma=7.html"><span class="ml-2"><i class='fas fa-times text-danger'></i></span></a></small></span>
+
+                  <hr style="margin:4px">
+
+                                <span><small>Aluno de Teste<a title="Excluir Matrícula" href="index@pag=turmas&amp;funcao=excluir_matricula&amp;id_m=42&amp;id_turma=7.html"><span class="ml-2"><i class='fas fa-times text-danger'></i></span></a></small></span>
+
+                  <hr style="margin:4px">
+
+                                <span><small>Felipe Santos<a title="Excluir Matrícula" href="index@pag=turmas&amp;funcao=excluir_matricula&amp;id_m=30&amp;id_turma=7.html"><span class="ml-2"><i class='fas fa-times text-danger'></i></span></a></small></span>
+
+                  <hr style="margin:4px">
+
+                                <span><small>Fabricio Silva<a title="Excluir Matrícula" href="index@pag=turmas&amp;funcao=excluir_matricula&amp;id_m=29&amp;id_turma=7.html"><span class="ml-2"><i class='fas fa-times text-danger'></i></span></a></small></span>
+
+                  <hr style="margin:4px">
+
+              
+
+
+          </div>
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal" id="modal-modulos" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Adicionar Módulos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                                                  <span><small>História da Musculação<a title="Adicionar Módulo" href="index?pag=turmas&funcao=add_modulo&id_m=1&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>576</b><br />
+&id_mod=1"><span class="ml-2"><i class='fas fa-check text-success'></i></span></a></small></span>
+
+                          <hr style="margin:4px">
+
+                                                <span><small>Principios da Musculação<a title="Adicionar Módulo" href="index?pag=turmas&funcao=add_modulo&id_m=2&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>576</b><br />
+&id_mod=2"><span class="ml-2"><i class='fas fa-check text-success'></i></span></a></small></span>
+
+                          <hr style="margin:4px">
+
+                                                <span><small>Métodos da Musculação<a title="Adicionar Módulo" href="index?pag=turmas&funcao=add_modulo&id_m=3&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>576</b><br />
+&id_mod=3"><span class="ml-2"><i class='fas fa-check text-success'></i></span></a></small></span>
+
+                          <hr style="margin:4px">
+
+                                                <span><small>Matemática<a title="Adicionar Módulo" href="index?pag=turmas&funcao=add_modulo&id_m=4&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>576</b><br />
+&id_mod=4"><span class="ml-2"><i class='fas fa-check text-success'></i></span></a></small></span>
+
+                          <hr style="margin:4px">
+
+                                                <span><small>Português<a title="Adicionar Módulo" href="index?pag=turmas&funcao=add_modulo&id_m=5&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>576</b><br />
+&id_mod=5"><span class="ml-2"><i class='fas fa-check text-success'></i></span></a></small></span>
+
+                          <hr style="margin:4px">
+
+                                                <span><small>História<a title="Adicionar Módulo" href="index?pag=turmas&funcao=add_modulo&id_m=6&id_turma=<br />
+<b>Warning</b>:  Undefined array key "id" in <b>/home/sistehugo/escolar.sistemashugo.com.br/painel-secretaria/turmas.php</b> on line <b>576</b><br />
+&id_mod=6"><span class="ml-2"><i class='fas fa-check text-success'></i></span></a></small></span>
+
+                          <hr style="margin:4px">
+
+                      
+                  </div>
+                  <div class="col-md-6">
+                   <small>Nenhum módulo / curso Adicionado!</small>
+              </div>
+          </div>
+
+
+
+      </div>
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<script>window.location='index?pag=turmas&id_turma=7&id_aluno=5&funcao=matriculados';</script>
+
+
+
+<!--AJAX PARA INSERÇÃO E EDIÇÃO DOS DADOS COM IMAGEM -->
+<script type="text/javascript">
+    $("#form").submit(function () {
+        var pag = "turmas";
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: pag + "/inserir.php",
+            type: 'POST',
+            data: formData,
+
+            success: function (mensagem) {
+
+                $('#mensagem').removeClass()
+
+                if (mensagem.trim() == "Salvo com Sucesso!") {
+
+                    //$('#nome').val('');
+                    //$('#cpf').val('');
+                    $('#btn-fechar').click();
+                    window.location = "index?pag="+pag;
+
+                } else {
+
+                    $('#mensagem').addClass('text-danger')
+                }
+
+                $('#mensagem').text(mensagem)
+
+            },
+
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function () {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+                return myXhr;
+            }
+        });
+    });
+</script>
+
+
+
+
+
+<!--AJAX PARA EXCLUSÃO DOS DADOS -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var pag = "turmas";
+        $('#btn-deletar').click(function (event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: pag + "/excluir.php",
+                method: "post",
+                data: $('form').serialize(),
+                dataType: "text",
+                success: function (mensagem) {
+
+                    if (mensagem.trim() === 'Excluído com Sucesso!') {
+
+
+                        $('#btn-cancelar-excluir').click();
+                        window.location = "index?pag=" + pag;
+                    }
+
+                    $('#mensagem_excluir').addClass('text-danger')
+                    $('#mensagem_excluir').text(mensagem)
+
+
+
+                },
+
+            })
+        })
+    })
+</script>
+
+
+
+<!--SCRIPT PARA CARREGAR IMAGEM -->
+<script type="text/javascript">
+
+    function carregarImg() {
+
+        var target = document.getElementById('target');
+        var file = document.querySelector("input[type=file]").files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            target.src = reader.result;
+        };
+
+        if (file) {
+            reader.readAsDataURL(file);
+
+
+        } else {
+            target.src = "";
+        }
+    }
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dataTable').dataTable({
+            "ordering": false
+        })
+
+    });
+</script>
+
+
+
+                        
+                        
+
+                    </div>
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Main Content -->
+
+
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="index@pag=turmas&amp;funcao=confirmar&amp;id_turma=7&amp;id_aluno=5.html#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+
+
+
+        <!--  Modal Perfil-->
+        <div class="modal fade" id="ModalPerfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Perfil</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+
+
+
+                    <form id="form-perfil" method="POST" enctype="multipart/form-data">
+                        <div class="modal-body">
+
+                           
+                                    <div class="form-group">
+                                        <label >Nome</label>
+                                        <input value="" type="text" class="form-control" id="nome_usu" name="nome_usu" placeholder="Nome">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >CPF</label>
+                                        <input value="" type="text" class="form-control" id="cpf_usu" name="cpf_usu" placeholder="CPF">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Email</label>
+                                        <input value="" type="email" class="form-control" id="email_usu" name="email_usu" placeholder="Email">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label >Senha</label>
+                                        <input value="" type="password" class="form-control" id="senha_usu" name="senha_usu" placeholder="Senha">
+                                    </div>
+                             
+
+
+
+                            <small>
+                                <div id="mensagem-perfil" class="mr-4">
+
+                                </div>
+                            </small>
+
+
+
+                        </div>
+                        <div class="modal-footer">
+
+
+
+                            <input value="" type="hidden" name="id_usu" id="id_usu">
+                            <input value="" type="hidden" name="antigo_usu" id="antigo_usu">
+
+                            <button type="button" id="btn-fechar-perfil" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" name="btn-salvar-perfil" id="btn-salvar-perfil" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Core plugin JavaScript-->
+        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="../js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="../vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="../js/demo/chart-area-demo.js"></script>
+        <script src="../js/demo/chart-pie-demo.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="../js/demo/datatables-demo.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+        <script src="../js/mascaras.js"></script>
+
+    </body>
+
+</html>
+
+
+
+
+
+<!--AJAX PARA INSERÇÃO E EDIÇÃO DOS DADOS COM IMAGEM -->
+<script type="text/javascript">
+    $("#form-perfil").submit(function () {
+       
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: "editar-perfil.php",
+            type: 'POST',
+            data: formData,
+
+            success: function (mensagem) {
+
+                $('#mensagem-perfil').removeClass()
+
+                if (mensagem.trim() == "Salvo com Sucesso!") {
+
+                    //$('#nome').val('');
+                    //$('#cpf').val('');
+                    $('#btn-fechar-perfil').click();
+                    window.location = "index";
+
+                } else {
+
+                    $('#mensagem-perfil').addClass('text-danger')
+                }
+
+                $('#mensagem-perfil').text(mensagem)
+
+            },
+
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function () {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function () {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+                return myXhr;
+            }
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
